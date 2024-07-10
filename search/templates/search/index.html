@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .dropdown {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 220px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        .dropdown option {
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+        .search-button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            width: 220px;
+            background-color: #00cc99;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .results {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .result-card {
+            background-color: #004d33;
+            padding: 20px;
+            margin: 10px;
+            width: 220px;
+            text-align: left;
+            border-radius: 8px;
+        }
+        .result-card img {
+            width: 30px;
+            height: 30px;
+        }
+        .result-card p {
+            margin: 5px 0;
+        }
+        .result-card h3, .result-card h2 {
+            margin: 10px 0;
+        }
+        .result-card .small-text {
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Origin & Destination Airports:</h1>
+        <form id="flightSearchForm" method="POST">
+            {% csrf_token %}
+            <select name="origin" class="dropdown">
+                <option value="SYD">SYD</option>
+                <option value="JFK">JFK</option>
+                <option value="DEL">DEL</option>
+                <option value="BOM">BOM</option>
+                <option value="BNE">BNE</option>
+                <option value="BLR">BLR</option>
+            </select>
+            <select name="destination" class="dropdown">
+                <option value="JFK">JFK</option>
+                <option value="DEL">DEL</option>
+                <option value="SYD">SYD</option>
+                <option value="LHR">LHR</option>
+                <option value="CDG">CDG</option>
+                <option value="DOH">DOH</option>
+                <option value="SIN">SIN</option>
+            </select>
+            <select name="cabin" class="dropdown">
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First</option>
+            </select>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        <div class="results">
+            {% if results %}
+                {% for result in results %}
+                    <div class="result-card">
+                        <img src="path/to/logo.png" alt="Logo">
+                        <p>{{ result.partner_program }}</p>
+                        <p>SYD➔JFK</p>
+                        <p>2024-07-09 ➔ 2024-10-07</p>
+                        {% if not result.min_business_miles %}
+                            <h3>N/A</h3>
+                        {% else %}
+                            <h3>{{ result.min_business_miles }} <span class="small-text">+ ${{ result.min_business_tax }}</span></h3>
+                        {% endif %}
+                        {% if result.min_economy_miles %}
+                            <h3>{{ result.min_economy_miles }} <span class="small-text">+ ${{ result.min_economy_tax }}</span></h3>
+                        {% endif %}
+                        {% if not result.min_first_miles %}
+                            <h2>N/A</h2>
+                        {% else %}
+                            <h2>{{ result.min_first_miles }} <span class="small-text">+ ${{ result.min_first_tax }}</span></h2>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
