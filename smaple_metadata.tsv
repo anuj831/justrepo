@@ -1,0 +1,7 @@
+sample_id	file_path_R1	                                               file_path_R2	                                               condition	replicate	sample_type
+sample_1	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep1_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep1_R2.fastq.gz	cond_1	rep_1	Leaf
+sample_2	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep2_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep2_R2.fastq.gz	cond_1	rep_2	Leaf
+sample_3	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep3_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/HBR/HBRRep3_R2.fastq.gz	cond_2	rep_1	Leaf
+sample_4	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep1_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep1_R2.fastq.gz	cond_2	rep_2	Root
+sample_5	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep2_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep2_R2.fastq.gz	cond_1	rep_1	Root
+sample_6	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep3_R1.fastq.gz	/home/bionivid/SQIT_Test_Data/RNA_denovo/0_Raw_data/UHR/UHRRep3_R2.fastq.gz	cond_2	rep_2	Root
